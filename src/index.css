@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color: #352B29; /* Nâu mực */
+    background-color: #F6EEDD; /* Giấy ngà nền chủ đạo */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: #F6EEDD;
+    color: #352B29;
+    /* Very fine, low-contrast traditional paper grain texture */
+    background-image: 
+      radial-gradient(#AD8648 0.4px, transparent 0.4px),
+      radial-gradient(#AD8648 0.4px, #F6EEDD 0.4px);
+    background-size: 32px 32px;
+    background-position: 0 0, 16px 16px;
+    background-attachment: fixed;
+  }
+
+  /* Fine editorial typography styles */
+  h1, h2, h3, h4, .font-serif {
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Keyboard focus states: clear on Tab, hidden on mouse click */
+  :focus:not(:focus-visible) {
+    outline: none !important;
+  }
+  
+  :focus-visible {
+    outline: 2px solid #AD8648 !important;
+    outline-offset: 2px !important;
+  }
+}
+
+/* Custom scrollbars matching warm paper & plum */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F6EEDD;
+}
+::-webkit-scrollbar-thumb {
+  background: #D4C09A;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4B2A7B;
+}
+
+/* Traditional Hue architectural & decorative utilities */
+.hairline-b {
+  border-bottom: 1px solid #E6DBC6;
+}
+.hairline-t {
+  border-top: 1px solid #E6DBC6;
+}
+.hairline-r {
+  border-right: 1px solid #E6DBC6;
+}
+.hairline-l {
+  border-left: 1px solid #E6DBC6;
+}
+
+/* Traditional Hue window frame with brass corner notches */
+.hue-window-frame {
+  position: relative;
+  border: 1px solid rgba(173, 134, 72, 0.4);
+  box-shadow: 0 8px 30px rgba(53, 32, 68, 0.08);
+}
+
+.hue-window-frame::before {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  border: 1px solid rgba(173, 134, 72, 0.25);
+  pointer-events: none;
+}
+
+/* Traditional corner brackets for showcase compartments */
+.corner-bracket {
+  position: relative;
+}
+.corner-bracket::before,
+.corner-bracket::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-color: #AD8648;
+  pointer-events: none;
+  opacity: 0.6;
+  transition: opacity 0.3s ease, border-color 0.3s ease;
+}
+.corner-bracket::before {
+  top: 4px;
+  left: 4px;
+  border-top: 1.5px solid #AD8648;
+  border-left: 1.5px solid #AD8648;
+}
+.corner-bracket::after {
+  bottom: 4px;
+  right: 4px;
+  border-bottom: 1.5px solid #AD8648;
+  border-right: 1.5px solid #AD8648;
+}
+.group:hover .corner-bracket::before,
+.group:hover .corner-bracket::after {
+  opacity: 1;
+  border-color: #4B2A7B;
+}
